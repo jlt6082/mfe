@@ -16,12 +16,12 @@ const generateClassName = createGenerateClassName({
     productionPrefix: 'co',
 });
 
-const history = createbrowserHistory();
+const history = createBrowserHistory();
 
 export default () => {
     const [isSignedIn, setIsSignedIn] = useState(false);
 
-    userEffect(() => {
+    useEffect(() => {
         if (isSignedIn) {
             history.push('/dashboard');
         }
@@ -39,7 +39,7 @@ export default () => {
                             </Route>
                             <Route path ="/dashboard">
                                 {!isSignedIn && <Redirect to="/" />}
-                                <DashboadrLazy />
+                                <DashboardLazy />
                             </Route>
                             <Route path="/" component={MarketingLazy} />
                         </Switch>
